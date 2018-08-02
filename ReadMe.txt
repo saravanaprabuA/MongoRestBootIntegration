@@ -54,4 +54,54 @@ select the folders and files to add -> right click TortoiseGit -> add
 select the folders and files to commit and push -> right click Git commit -> master
 
 in the commit window -> manage Remot : set the repo url and master
+=======================================================
+MongoRestBootIntegration:
+
+Create: POST
+
+http://localhost:8080/api/todo
+
+{"title": "Title", "description":"Description"}
+=======================================
+Find All: GET
+=======================================
+http://localhost:8080/api/todo
+=======================================
+FindById: GET
+
+http://localhost:8080/api/todo/5b6248da2f3e09b02742136b
+=======================================
+Update: PUT
+
+http://localhost:8080/api/todo/5b6248da2f3e09b02742136b
+
+{
+	"id":"5b6248da2f3e09b02742136b",
+	"title": "Updated Title", 
+	"description":"Updated Description"
+}
+=======================================
+Delete: DELETE
+
+http://localhost:8080/api/todo/5b6248da2f3e09b02742136b
+====================================
+Mongo DB Qurery: NoSQLBooster
+
+db.todo.find({})
+==================================================
+Spring Rest with Node js mongodb integration
+
+Run the node application
+node app  
+
+postmand: crate todo
+
+POST: http://localhost:3000/postrest
+{
+	"title": "Postman Title-3", 
+	"description":"Post Description-3"
+}
+
+will create the record in todo table in mongo db
+
 
