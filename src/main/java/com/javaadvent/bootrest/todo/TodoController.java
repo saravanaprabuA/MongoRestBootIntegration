@@ -33,7 +33,7 @@ final class TodoController {
         this.service = service;
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     TodoDTO create(@RequestBody @Valid TodoDTO todoEntry) {
         LOGGER.info("Creating a new todo entry with information: {}", todoEntry);
@@ -64,7 +64,7 @@ final class TodoController {
         return todoEntries;
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+     @RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     TodoDTO findById(@PathVariable("id") String id) {
         LOGGER.info("Finding todo entry with id: {}", id);
 
@@ -74,7 +74,7 @@ final class TodoController {
         return todoEntry;
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
     TodoDTO update(@RequestBody @Valid TodoDTO todoEntry) {
         LOGGER.info("Updating todo entry with information: {}", todoEntry);
 
